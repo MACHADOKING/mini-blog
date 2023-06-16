@@ -1,7 +1,17 @@
 .register {
+  width: 100%;
   text-align: center;
+  padding: 20px;
 }
 
 .register p {
   text-align: center;
+}
+
+.register label {
+  margin: 15px;
+}
+
+.register button {
+  margin-bottom: 25px;
 }

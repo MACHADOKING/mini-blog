@@ -43,4 +43,5 @@
 
 .active {
   color: #f78166 !important;
+  pointer-events: none;
 }
