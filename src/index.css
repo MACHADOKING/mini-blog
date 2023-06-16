@@ -43,3 +43,66 @@ nav button:hover {
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+
+/* Form styles */
+
+form {
+  max-width: 40%;
+  margin: 0 auto;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1px;
+}
+
+label span {
+  margin-bottom: 0.3em;
+  font-weight: bold;
+  text-align: left;
+}
+
+input,
+textarea {
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 1px solid #f2f2f2;
+  padding: 0.8em 0;
+  background-color: transparent;
+}
+
+.btn {
+  background-color: rgba(33, 38, 45, 0.45);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(33, 38, 45, 0.3);
+  color: rgba(255, 255, 255, 0.87);
+  text-align: center;
+  cursor: pointer;
+  border-radius: 10px;
+  width: 120px;
+  font-weight: bold;
+  padding: 10px 15px;
+  font-size: 1em;
+  transition: all ease 0.2s;
+}
+
+.btn:hover {
+  background-color: #21262d;
+  border: 1px solid #abd1d9;
+}
+
+button[disabled] {
+  background-color: #aaa;
+  pointer-events: none;
+}
+
+.container .error {
+  color: #721c24;
+  background-color: rgba(33, 38, 45, 0.45);
+  border: 1px solid #abd1d9;
+  padding: 5px;
+  border-radius: 5px;
+}
