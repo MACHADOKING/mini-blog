@@ -1,0 +1,46 @@
+.navbar {
+  display: flex;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px -2px 10px 0px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em 0.2em;
+}
+
+.brand {
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding-left: 1em;
+  text-decoration: none;
+  color: rgba(235, 235, 235, 0.9);
+}
+
+.brand > span {
+  color: #f2f2f2;
+  font-weight: 900;
+}
+
+.links_list {
+  display: flex;
+  list-style: none;
+}
+
+.links_list li {
+  margin-right: 1em;
+}
+
+.links_list li a {
+  padding: 0.4em 0.6em;
+  text-decoration: none;
+  color: #f2f2f2;
+  font-size: 1.1rem;
+  transition: all ease 0.2s;
+}
+
+.links_list li a:hover {
+  text-decoration: underline;
+}
+
+.active {
+  color: #f78166 !important;
+}
