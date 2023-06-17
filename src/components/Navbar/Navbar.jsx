@@ -10,6 +10,8 @@ import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const { user } = useAuthValue();
+  const { logout } = useAuthentication();
+
   return (
     <nav className={styles.navbar}>
       <NavLink className={styles.brand} to="/">
@@ -72,6 +74,13 @@ const Navbar = () => {
             Sobre
           </NavLink>
         </li>
+        {user && (
+          <li>
+            <button className="btn" onClick={logout}>
+              Sair
+            </button>
+          </li>
+        )}
       </ul>
     </nav>
   );
