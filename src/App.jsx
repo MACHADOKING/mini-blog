@@ -2,6 +2,8 @@
 import "./App.css";
 // packages
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+// context
+import { AuthProvider } from "./context/AuthContext";
 // components
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
@@ -14,18 +16,20 @@ import Register from "./pages/Register/Register";
 function App() {
   return (
     <main className="container">
-      <BrowserRouter>
-        <Navbar />
-        <div className="container">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-          </Routes>
-        </div>
-        <Footer />
-      </BrowserRouter>
+      <AuthProvider>
+        <BrowserRouter>
+          <Navbar />
+          <div className="container">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+            </Routes>
+          </div>
+          <Footer />
+        </BrowserRouter>
+      </AuthProvider>
     </main>
   );
 }
