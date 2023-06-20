@@ -1,14 +1,16 @@
 import styles from "./EditPost.module.css";
 
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { useUpdateDocument } from "../../hooks/useUpdateDocument";
 import { useAuthValue } from "../../context/AuthContext";
 import { useFetchDocument } from "../../hooks/useFetchDocument";
+import { useUpdateDocument } from "../../hooks/useUpdateDocument";
 
 const EditPost = () => {
   const { id } = useParams();
   const { document: post } = useFetchDocument("posts", id);
+
+  console.log(post);
 
   const [title, setTitle] = useState("");
   const [image, setImage] = useState("");
@@ -16,13 +18,14 @@ const EditPost = () => {
   const [tags, setTags] = useState([]);
   const [formError, setFormError] = useState("");
 
+  // fill form data
   useEffect(() => {
     if (post) {
       setTitle(post.title);
-      setBody(post.body);
       setImage(post.image);
+      setBody(post.body);
 
-      const textTags = post.tagsArray.join(", ");
+      const textTags = post.tags.join(", ");
 
       setTags(textTags);
     }
@@ -46,12 +49,7 @@ const EditPost = () => {
     }
 
     // create tags array
-    const tagsArray = tags.split(",").map((tag) => tag.trim().toLowerCase());
-
-    // check values
-    if (!title || !image || !tags || !body) {
-      setFormError("Por favor, preencha todos os campos!");
-    }
+    const tagsArray = tags.split(",").map((tag) => tag.trim());
 
     console.log(tagsArray);
 
@@ -60,20 +58,16 @@ const EditPost = () => {
       image,
       body,
       tags: tagsArray,
-      uid: user.uid,
-      createdBy: user.displayName,
     });
-
-    if (formError) return;
 
     const data = {
       title,
       image,
       body,
       tags: tagsArray,
-      uid: user.uid,
-      createdBy: user.displayName,
     };
+
+    console.log(post);
 
     updateDocument(id, data);
 
@@ -85,9 +79,8 @@ const EditPost = () => {
     <div className={styles.edit_post}>
       {post && (
         <>
-          <h2>Editando post:</h2>
-          <h3>{post.title}</h3>
-          <p>Altere os dados do post acima, como desejar.</p>
+          <h2>Editando post: {post.title}</h2>
+          <p>Altere os dados do post como desejar</p>
           <form onSubmit={handleSubmit}>
             <label>
               <span>Título:</span>
@@ -138,7 +131,7 @@ const EditPost = () => {
                 value={tags}
               />
             </label>
-            {!response.loading && <button className="btn">Confirmar</button>}
+            {!response.loading && <button className="btn">Editar</button>}
             {response.loading && (
               <button className="btn" disabled>
                 Aguarde.. .
