@@ -18,8 +18,8 @@ const About = () => {
         Criar post
       </Link>
       <div className={styles.images}>
-        <img src="/react.png" />
-        <img src="/firebase.png" />
+        <img src="../../public/react.png" />
+        <img src="../../public/firebase.png" />
       </div>
     </div>
   );
