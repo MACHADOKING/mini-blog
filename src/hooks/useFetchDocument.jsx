@@ -7,15 +7,8 @@ export const useFetchDocument = (docCollection, id) => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(null);
 
-  // deal with memory leak
-  const [cancelled, setCancelled] = useState(false);
-
   useEffect(() => {
-    async function loadDocument() {
-      if (cancelled) {
-        return;
-      }
-
+    const loadDocument = async () => {
       setLoading(true);
 
       try {
@@ -23,20 +16,18 @@ export const useFetchDocument = (docCollection, id) => {
         const docSnap = await getDoc(docRef);
 
         setDocument(docSnap.data());
-        setLoading(false);
       } catch (error) {
         console.log(error);
         setError(error.message);
-        setLoading(false);
       }
-    }
+
+      setLoading(false);
+    };
 
     loadDocument();
-  }, [docCollection, id, cancelled]);
+  }, [docCollection, id]);
 
-  useEffect(() => {
-    return () => setCancelled(true);
-  }, []);
+  console.log(document);
 
   return { document, loading, error };
 };

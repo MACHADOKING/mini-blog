@@ -1,4 +1,6 @@
 .dashboard {
+  max-width: 720px;
+  margin: 0 auto;
   padding-top: 30px;
   text-align: center;
   gap: 10px;
@@ -44,6 +46,14 @@
 .post_header {
   font-weight: bold;
   border-bottom: 2px solid #ccc;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .post_row {

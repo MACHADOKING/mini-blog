@@ -6,6 +6,28 @@
   box-sizing: border-box;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: #f5f5f5;
+  /* border-radius: 10px; */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #1c3783;
+  border-radius: 10px;
+}
+
+html,
+body {
+  overflow-x: hidden !important;
+}
+
 input:focus,
 textarea:focus {
   outline: none;
